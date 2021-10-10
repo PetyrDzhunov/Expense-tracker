@@ -1,0 +1,9 @@
+array expenses stay in app.js
+we need to create component which in the end
+is responsilbe for rendering these 4 expense items =>
+so this 4 expense items are no longer rendered in the app component;
+the new component should be rendered in app js
+we need the app js component leaner by extracting some jsx into 
+separate new components and we need to use props to pass into
+the new component 
+wraps all the 4 expenses components in a div with a expenses class
