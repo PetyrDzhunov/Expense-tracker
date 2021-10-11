@@ -1,9 +1,8 @@
 import './ExpensesList.css';
 import ExpenseItem from './ExpenseItem';
 import { Component } from 'react';
-import Card from './Card';
+import Card from '../UI/Card';
 export default function ExpensesList({items}) {
-	console.log(ExpenseItem);
 	return (
 		<Card className="expenses">
 			<ExpenseItem title={items[0].title} amount={items[0].amount} date={items[0].date}/>
