@@ -1,9 +1,11 @@
-import './ExpensesList.css';
+import './Expenses.css';
 import { useState } from 'react';
-import ExpenseItem from './ExpenseItem';
 import Card from '../UI/Card';
 import ExpensesFilter from './ExpenseFilter';
-export default function ExpensesList({ items, }) {
+import ExpensesList from './ExpensesList';
+
+
+export default function Expenses({ items, }) {
 	const [filteredYear, setFilteredYear] = useState('2020');
 	const filterChangedHandler = (selectedYear) => {
 		setFilteredYear(selectedYear);
@@ -12,25 +14,18 @@ export default function ExpensesList({ items, }) {
 	const filteredExpenses = items.filter(expense => {
 		return expense.date.getFullYear().toString() === filteredYear;
 	});
-	console.log(filteredExpenses);
+
+
+
 	return (
 		<div>
 			<Card className="expenses">
 				<ExpensesFilter selected={filteredYear} onChangeFilter={filterChangedHandler} />
-				{filteredExpenses.map((item) => (
-					<ExpenseItem
-						key={item.id}
-						title={item.title}
-						amount={item.amount}
-						date={item.date}
-					/>
-				))}
-
+				<ExpensesList items={filteredExpenses} />
 			</Card>
 		</div>
-
-	)
-}
+	);
+};
 
 // {[items]} => {[]} => destructuring => recieves directly array from the main App.js directory which we passed in our ExpenseList comp
 // as an attribute and we catch it here with props : (items). Then we pass title,amount and date attributes into the expenseItem component
