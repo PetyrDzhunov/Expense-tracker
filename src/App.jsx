@@ -9,10 +9,11 @@ function App() {
     { id: 'e3', title: "New Desk", amount: 354.27, date: new Date(2021, 4, 14) },
     { id: 'e4', title: "New Car", amount: 3850, date: new Date(2021, 5, 3) },
   ];
+
   const addExpenseHandler = (expense) => {
     console.log(expense);
-    console.log(expense);
-  }
+  };
+
   return (
     <div>
       <NewExpense onAddExpense={addExpenseHandler} />
