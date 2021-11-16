@@ -3,16 +3,21 @@ import { useState } from 'react';
 import ExpenseItem from './ExpenseItem';
 import Card from '../UI/Card';
 import ExpensesFilter from './ExpenseFilter';
-export default function ExpensesList({ items }) {
+export default function ExpensesList({ items, }) {
 	const [filteredYear, setFilteredYear] = useState('2020');
 	const filterChangedHandler = (selectedYear) => {
 		setFilteredYear(selectedYear);
 	};
+
+	const filteredExpenses = items.filter(expense => {
+		return expense.date.getFullYear().toString() === filteredYear;
+	});
+	console.log(filteredExpenses);
 	return (
 		<div>
 			<Card className="expenses">
 				<ExpensesFilter selected={filteredYear} onChangeFilter={filterChangedHandler} />
-				{items.map((item) => (
+				{filteredExpenses.map((item) => (
 					<ExpenseItem
 						key={item.id}
 						title={item.title}
@@ -31,3 +36,5 @@ export default function ExpensesList({ items }) {
 // as an attribute and we catch it here with props : (items). Then we pass title,amount and date attributes into the expenseItem component
 // which he recieves as a props . Passing around data is the point of using props. Then in the date we pass the date props to the expenseDate component which 
 // he recieves as a props and work with it however needed.
+
+

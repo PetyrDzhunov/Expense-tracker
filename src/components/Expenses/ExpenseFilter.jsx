@@ -1,14 +1,14 @@
-import React,{useState} from 'react';
+import React, { useState } from 'react';
 
 import './ExpensesFilter.css';
 
 const ExpensesFilter = (props) => {
 
-	const dropdownChangeHandler = (e) => {
-		// picked value => forwarded to the expenses component
-		let year = e.target.value;
-		props.onChangeFilter(year);
-	};
+  const dropdownChangeHandler = (e) => {
+    // picked value => forwarded to the expenses component
+    let year = e.target.value;
+    props.onChangeFilter(year);
+  };
   return (
     <div className='expenses-filter'>
       <div className='expenses-filter__control'>
